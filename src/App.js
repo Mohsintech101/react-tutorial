@@ -5,6 +5,7 @@ import "./App.css";
 import About from "./components/About";
 import { useState } from "react";
 import Alert from "./components/Alert";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("primary");
@@ -56,21 +57,32 @@ function App() {
 
   return (
     <>
-      <Navbar
-        title="TextConvert"
-        about="About"
-        mode={mode}
-        toggle={toggleMode}
-      />
-      <Alert alert={alert} />
-      <About mode={mode} />
-      <div className="container my-3">
-        <TextForm
-          heading="Enter the text to analyze below"
+      <BrowserRouter>
+        <Navbar
+          title="TextConvert"
+          about="About"
           mode={mode}
-          showAlert={showAlert}
+          toggle={toggleMode}
         />
-      </div>
+        <Alert alert={alert} />
+
+        <Routes>
+          <Route exact path="/about" element={<About mode={mode} />} />
+          <Route
+            exact
+            path="/"
+            element={
+              <div className="container my-3">
+                <TextForm
+                  heading="Enter the text to analyze below"
+                  mode={mode}
+                  showAlert={showAlert}
+                />
+              </div>
+            }
+          ></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

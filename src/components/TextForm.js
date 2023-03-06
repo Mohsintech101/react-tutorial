@@ -152,37 +152,37 @@ export default function TextForm({ heading, mode, showAlert }) {
             onChange={handleChange}
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-1" onClick={handleLowercase}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1  my-1" onClick={handleLowercase}>
           LowerCase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleUppercase}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleUppercase}>
           UpperCase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleCapitalizecase}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleCapitalizecase}>
           CapitalizeCase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleTitlecase}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleTitlecase}>
           TitleCase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleInversecase}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleInversecase}>
           InverseCase
         </button>
-        <button
-          className="btn btn-primary mx-1 my-3"
+        <button disabled={text.length===0}
+          className="btn btn-primary mx-1 my-1"
           onClick={handleAlternatecase}
         >
           aLtErNaTiNg cAsE
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleCopy}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleCopy}>
           Copy to Clipboard
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleDownload}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleDownload}>
           Download Text
         </button>
-        <button className="btn btn-primary mx-1" onClick={() => {handleExtraSpaces(text)}}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={() => {handleExtraSpaces(text)}}>
           Remove Extra Spaces
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleClear}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleClear}>
           Clear
         </button>
       </div>
@@ -196,7 +196,7 @@ export default function TextForm({ heading, mode, showAlert }) {
         <p>{0.008 * totalWords(text)} Minutes to Read</p>
         <h2>Preview</h2>
         <p>
-          {text === "" ? "Type Above in the Textarea to Preview Here" : text}
+          {text === "" ? "Nothing to Preview" : text}
         </p>
       </div>
     </>
