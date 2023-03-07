@@ -100,7 +100,7 @@ export default function TextForm({ heading, mode, showAlert }) {
 
   function totalWords(text)
   {
-    let textAfterRemovingSpace = text.split(" ").filter((word) =>{
+    let textAfterRemovingSpace = text.split(/\s+/).filter((word) =>{
       return word !== ''
     })
     return textAfterRemovingSpace.length
